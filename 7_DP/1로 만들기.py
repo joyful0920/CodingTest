@@ -5,7 +5,7 @@ si = sys.stdin.readline
 x = int(si())
 
 # DP 테이블 초기화
-d = [0] * 30001 # [float('inf') * (n + 1)]
+d = [0] * 30001 # [float('inf')] * (n + 1)
 
 # 보톰업 DP
 for i in range(2, x + 1): # 2 ~ x
