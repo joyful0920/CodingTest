@@ -12,16 +12,16 @@ indegree = [0] * (v + 1)
 # 각 노드에 연결된 간선 정보를 담기 위한 연결 리스트(그래프) 초기화
 graph = [[] for i in range(v + 1)]
 
-# 강의 시간을 담을 테이블 생성 및 초기화
+# 건축 시간을 담을 테이블 생성 및 초기화
 time = [0] * (v + 1)
 
 # 방향 그래프의 모든 간선 정보 입력 받기
 for i in range(1, v + 1):
     data = list(map(int, si().split()))
     time[i] = data[0]
-    for j in data[1:-1]:
+    for x in data[1:-1]:
         indegree[i] += 1
-        graph[j].append(i)
+        graph[x].append(i)
 
 # 위상 정렬 함수
 def topology_sort():
