@@ -19,8 +19,6 @@ def test(result):
     return True
 
 def solution(n, build_frame):
-    # 벽면으로 사용할 2차원 리스트
-    array = [[(0, 0)] * (n + 1) for _ in range(n + 1)]
     result = [] # 결과를 담을 리스트
 
     # 설치/삭제 명령을 차례대로 수행

@@ -1,6 +1,5 @@
 import sys
 from collections import deque
-sys.setrecursionlimit(10**9)
 si = sys.stdin.readline
 
 n = int(si())
