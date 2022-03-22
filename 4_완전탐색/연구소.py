@@ -4,7 +4,7 @@ from copy import deepcopy
 import sys
 si = sys.stdin.readline
 
-# N, M, 지도 모양 입력
+# N, M, 지도 입력
 n, m = map(int, si().split())
 graph = [list(map(int, si().split())) for _ in range(n)]
 
