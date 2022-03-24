@@ -8,7 +8,7 @@ n = int(si())
 array = [int(si().rstrip()) for _ in range(n)]
 
 # 얻을 수 있는 점수의 합을 저장할 DP 테이블
-d = [0] * (n)
+d = [0] * n
 
 for i in range(n):
     if i == 0:
