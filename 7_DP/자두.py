@@ -15,7 +15,6 @@ for i in range(1, t + 1):
     for j in range(1, w + 1):
         if j > i:
             break
-
         if plums[i] == 1 and j % 2 == 0:
             d[i][j] = max(d[i - 1][j], d[i - 1][j - 1]) + 1
         elif plums[i] == 2 and j % 2 == 1:

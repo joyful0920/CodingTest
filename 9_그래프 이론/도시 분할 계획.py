@@ -35,8 +35,7 @@ max_c = 0
 # 모든 길 정보 입력 받기
 for _ in range(m):
     a, b, c = map(int, si().split())
-    # 유지비순 정열을 위해 튜플의 첫 번쨰 원소를 비용으로 설정
-    edges.append((a, b, c)) # (a, b, c)
+    edges.append((a, b, c))
 
 # 간선을 유지비순으로 정렬
 edges.sort(key=lambda x:x[2]) # lambda
