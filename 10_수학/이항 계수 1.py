@@ -3,6 +3,7 @@ si = sys.stdin.readline
 
 n, k = map(int, si().split())
 
+# 팩토리얼 재귀 함수
 def factorial(n):
     if n <= 1:
         return 1
