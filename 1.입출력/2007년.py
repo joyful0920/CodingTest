@@ -9,5 +9,4 @@ total = 0
 for i in range(0, x - 1):
     total += days[i]
 
-
 print(weeks[(total + y) % 7])
