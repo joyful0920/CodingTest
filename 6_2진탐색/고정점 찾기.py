@@ -9,12 +9,12 @@ def fixed_point():
     end = n - 1
     while (start <= end):
         mid = (start + end) // 2
-        # 중간 인덱스 지점의 값이 인덱스보다 클 경우
-        if array[mid] > mid:
-            end = mid - 1
         # 중간 인덱스 지점의 값이 인덱스보다 작을 경우
-        elif array[mid] < mid:
+        if mid > array[mid]:
             start = mid + 1
+        # 중간 인덱스 지점의 값이 인덱스보다 클 경우
+        elif mid < array[mid]:
+            end = mid - 1
         # 중간 인덱스 지점의 값과 인덱스가 일치할 경우
         else:
             return mid

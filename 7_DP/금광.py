@@ -15,7 +15,5 @@ for _ in range(t):
                 bx = x - 1 - (k * m)
                 if 0 <= bx < n * m:
                     d[x] = max(d[x], d[bx] + mines[x])
-                else:
-                    d[x] = max(d[x], mines[x])
 
     print(max(d))
