@@ -15,6 +15,8 @@ for _ in range(m):
     x, y, z = map(int, si().split())
     graph[x].append((y, z))
 
+start, end = map(int, si().split())
+
 # 다익스트라 알고리즘
 def dijkstra(start):
     q = []
@@ -33,8 +35,4 @@ def dijkstra(start):
 # 다익스트라 알고리즘 수행
 dijkstra(start)
 
-for i in range(1, n + 1):
-    if distance[i] == INF:
-        print("INF")
-    else:
-        print(distance[i])
+print(distance[end])
