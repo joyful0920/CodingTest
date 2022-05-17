@@ -43,7 +43,3 @@ def topology_sort():
         print(i, end=' ')
 
 topology_sort()
-    
-# 위상 정렬을 수행한 결과 출력
-for i in range(1, v + 1):
-    print(i, end=' ')
