@@ -10,8 +10,7 @@ parent = [i for i in range(0, g + 1)]
 # find 연산 함수
 def find_parent(x):
     if parent[x] != x:
-        parent[x] = find_parent(parent[x])
-        return parent[x]
+        return find_parent(parent[x])
     return x
 
 # union 연산 함수

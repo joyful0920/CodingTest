@@ -4,17 +4,14 @@ si = sys.stdin.readline
 s = si().rstrip()
 result = 0
 
-for i in s: # enumerate -> 인덱스와 밸류로 나눠서 접근 가능
-    # i가 0이나 1이면 곱하는 것보다 더하는 것이 나음
-    if i == '0' or i == '1':
-        result += int(i)
-    # 그게 아닌 경우
+for i in s:
+    i = int(i)
+    if i == 0 or i == 1: # 문자 i가 0 또는 1인 경우
+        result += i
     else:
-        # 기존 결과 값이 0인 경우는 곱할 수 없으므로 더하기
-        if result == 0:
-            result += int(i)
-        # 그 외엔 무조건 곱하는 것이 나음
+        if result == 0: # result 값이 0인 경우 곱하면 손해
+            result += i
         else:
-            result *= int(i)
+            result *= i
 
 print(result)
