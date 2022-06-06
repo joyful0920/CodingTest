@@ -1,7 +1,6 @@
 import heapq
 
 def solution(food_times, k):
-    
     # 네트워크 장애시간(멈춘 시간)보다 전체 음식을 먹는 시간이 짧은 경우
     if sum(food_times) <= k:
         return -1
