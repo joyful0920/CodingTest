@@ -1,44 +1,53 @@
-import sys
-si = sys.stdin.readline
+s = "aabbaccc"
 
-s = si().rstrip()
-results = [] # 각 단위로 자른 결과의 문자열 길이를 담을 리스트
+def solution(s):
+    # 각각 단위(1, 2, 3... len(s))로 자른 문자열 길이를 저장할 리스트
+    results = []
 
-# 1부터 문자열 길이만큼 반복
-for i in range(1, len(s) + 1):
+    # 1부터 s의 길이까지 반복하면서
+    for i in range(1, len(s) + 1):
+        # 문자열 자르기
+        sliced = [] # 자른 문자열 파트를 담을 리스트
+        for j in range(0, len(s), i):
+            sliced.append(s[j:j + i])
+            # i == 1 -> s[0:1], s[1:2], s[2:3]... sliced = ['a', 'a', 'b', 'b', 'a', 'c', 'c', 'c']
+            # i == 2 -> s[0:2], s[2:4], s[4:6]... sliced = ['aa', 'bb', 'ac', 'cc']
+            
 
-    # 문자열을 자르기
-    sliced = [] # 각 단위로 자른 문자열을 담을 리스트
-    for j in range(0, len(s), i):
-        sliced.append(s[j:j + i])
+        # 자른 문자열들을 서로 비교하며 문자열 압축
+        parts = [] # 중복된 문자열을 제거한 파트를 담을 리스트
+        nums = [] # 반복되는 파트를 카운트한 숫자를 담을 리스트
+        cnt = 1
+        # 자른 문자열 파트를 앞뒤로 비교
+        # sliced = ['a', 'a', 'b', 'b', 'a', 'c', 'c', 'c']
+        for j in range(1, len(sliced)):
+            if sliced[j] == sliced[j - 1]:
+                cnt += 1
+            else:
+                parts.append(sliced[j - 1])
+                if cnt == 1:
+                    cnt = ''
+                nums.append(str(cnt))
+                cnt = 1
+        
+        # 앞선 반복문에서 누락된 마지막 문자열 파트에 대한 처리
+        parts.append(sliced[-1])
+        if cnt == 1:
+            cnt = ''
+        nums.append(str(cnt))
 
-    # 현재 문자열과 그 전 문자열을 비교
-    temp = [] # 중복된 문자열을 제거한 요소를 담을 리스트
-    num = [] # 반복되는 문자열을 카운트한 숫자를 담을 리스트
-    cnt = 1
-    for x in range(1, len(sliced)):
-        if sliced[x] == sliced[x - 1]: # 같다면 카운트 + 1
-            cnt += 1
-        else: # 다르다면 직전 문자열을 temp에 저장
-            temp.append(sliced[x - 1])
-            if cnt == 1: # 카운트 횟수가 1이라면 ''로 변환
-                cnt = ''
-            num.append(cnt) # 카운트 횟수를 num에 저장
-            cnt = 1
+        # sliced = ['a', 'a', 'b', 'b', 'a', 'c', 'c', 'c']
+        # parts = ['a', 'b', 'a', 'c']
+        # nums = [2, 2, '', 2]
 
-    # 누락된 마지막 요소들을 추가할 코드
-    temp.append(sliced[-1])            
-    if cnt == 1:
-        cnt = ''
-    num.append(cnt)
+        # 문자열 압축 결과를 result 변수에 저장
+        result = ''
+        for j in range(len(nums)):
+            result += (nums[j] + parts[j]) # 2a + 2b + a + 2c -> 2a2ba2c
+        
+        # results 리스트에 각각 단위로 잘라서 압축한 문자열의 길이를 저장
+        results.append(len(result))
 
-    # temp와 num의 요소를 합친 후 result에 연결
-    result = '' # 압축한 문자열을 저장할 변수
-    for y in range(len(num)):
-        result += (str(num[y]) + temp[y])
-    
-    # 압축된 문자열의 길이를 results에 저장
-    results.append(len(result))
+    return min(results)
 
-# 압축된 문자열의 최소 길이 출력
-print(min(results))
+print(solution(s))
