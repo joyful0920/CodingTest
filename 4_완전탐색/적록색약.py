@@ -1,7 +1,8 @@
-import sys, copy
+import sys
 sys.setrecursionlimit(10**9)
 si = sys.stdin.readline
 
+# DFS 함수
 def dfs(x, y, target):
     if 0 <= x < n and 0 <= y < n and graph[x][y] == target and not visited[x][y]:
         visited[x][y] = True
@@ -11,11 +12,13 @@ def dfs(x, y, target):
         dfs(x, y + 1, target)
         return True
 
+# 카운트 함수
 def counting(blind):
     global visited
     visited = [[False] * n for _ in range(n)]
     cnt = 0
 
+    # 적록색약의 경우
     if blind:
         for i in range(n):
             for j in range(n):
